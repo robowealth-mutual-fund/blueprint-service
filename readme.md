@@ -9,4 +9,4 @@
 
 https://github.com/gvenzl/oci-oracle-free#oracle-database-free-on-apple-m-chips
 
-### Please change config on FIXME
+### Please change config on FIXME and read makefile
