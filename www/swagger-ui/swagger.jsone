@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Todo Service",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Todo Service"
+    }
+  },
+  "tags": [
+    {
+      "name": "TodoService",
+      "description": "Todo Service"
+    }
+  ],
+  "basePath": "{BASE_PATH}",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/todo": {
+      "post": {
+        "summary": "Create todo",
+        "operationId": "TodoService_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/messageCreateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/messageCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "TodoService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "messageCreateRequest": {
+      "type": "object",
+      "properties": {
+        "taskName": {
+          "type": "string",
+          "example": "Send Email",
+          "title": "@inject_tag: validate:\"required\""
+        },
+        "status": {
+          "type": "string",
+          "example": "TODO"
+        }
+      }
+    },
+    "messageCreateResponse": {
+      "type": "object",
+      "properties": {
+        "taskName": {
+          "type": "string",
+          "example": "Send Email"
+        },
+        "status": {
+          "type": "string",
+          "example": "TODO"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

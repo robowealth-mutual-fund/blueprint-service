@@ -1,0 +1,9 @@
+bin
+.env
+.idea
+*.pb.go
+*.pb.*.go
+.vscode
+swagger
+.netrc
+.DS_Store
