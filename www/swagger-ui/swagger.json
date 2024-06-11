@@ -2,14 +2,14 @@
   "swagger": "2.0",
   "info": {
     "title": "Todo Service",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "contact": {
       "name": "Todo Service"
     }
   },
   "tags": [
     {
-      "name": "TodoService",
+      "name": "Todo",
       "description": "Todo Service"
     }
   ],
@@ -26,6 +26,27 @@
   ],
   "paths": {
     "/api/todo": {
+      "get": {
+        "summary": "List todo items",
+        "operationId": "TodoService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/messageListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Todo"
+        ]
+      },
       "post": {
         "summary": "Create todo",
         "operationId": "TodoService_Create",
@@ -54,7 +75,100 @@
           }
         ],
         "tags": [
-          "TodoService"
+          "Todo"
+        ]
+      },
+      "put": {
+        "summary": "Update todo",
+        "operationId": "TodoService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/messageUpdateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/messageUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Todo"
+        ]
+      }
+    },
+    "/api/todo/{id}": {
+      "get": {
+        "summary": "Get todo by ID",
+        "operationId": "TodoService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/messageGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "@inject_tag: validate:\"required\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Todo"
+        ]
+      },
+      "delete": {
+        "summary": "Delete todo",
+        "operationId": "TodoService_Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/messageDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "@inject_tag: validate:\"required\"",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Todo"
         ]
       }
     }
@@ -94,6 +208,97 @@
           "type": "string",
           "format": "int64",
           "example": 1714369904
+        }
+      }
+    },
+    "messageDeleteResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Todo item deleted successfully",
+          "title": "Optionally include a confirmation message or other relevant info"
+        }
+      }
+    },
+    "messageGetResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "36aa4166-8a27-425f-b9a7-4cd1b4d65629"
+        },
+        "taskName": {
+          "type": "string",
+          "example": "Send Email"
+        },
+        "status": {
+          "type": "string",
+          "example": "TODO"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        }
+      }
+    },
+    "messageListResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "36aa4166-8a27-425f-b9a7-4cd1b4d65629"
+        },
+        "taskName": {
+          "type": "string",
+          "example": "Send Email"
+        },
+        "status": {
+          "type": "string",
+          "example": "TODO"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64",
+          "example": 1714369904
+        }
+      }
+    },
+    "messageUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "36aa4166-8a27-425f-b9a7-4cd1b4d65629",
+          "title": "@inject_tag: validate:\"required\""
+        },
+        "taskName": {
+          "type": "string",
+          "example": "Send Email"
+        },
+        "status": {
+          "type": "string",
+          "example": "TODO"
+        }
+      }
+    },
+    "messageUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "36aa4166-8a27-425f-b9a7-4cd1b4d65629"
         }
       }
     },
