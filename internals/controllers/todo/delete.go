@@ -13,9 +13,7 @@ func (c Controller) Delete(ctx context.Context, request *message.DeleteRequest) 
 	ctx, span := utils.StartSpanFromContext(ctx, c.config.Trace.OtelServiceName, "Controller.Todo.Delete")
 	defer span.End()
 
-	response, err := c.service.Delete(ctx, &model.DeleteRequest{
-		Id: request.Id,
-	})
+	response, err := c.service.Delete(ctx, &model.DeleteRequest{Id: request.Id})
 
 	if err != nil {
 		span.SetStatus(codes.Error, "Error Delete Todo")
@@ -23,7 +21,5 @@ func (c Controller) Delete(ctx context.Context, request *message.DeleteRequest) 
 		return nil, err
 	}
 
-	return &message.DeleteResponse{
-		Message: response.Message,
-	}, nil
+	return &message.DeleteResponse{Message: response.Message}, nil
 }

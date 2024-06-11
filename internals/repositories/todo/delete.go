@@ -13,7 +13,5 @@ func (r *Repository) Delete(ctx context.Context, request *model.DeleteRequest) (
 		return nil, err
 	}
 
-	return &model.DeleteResponse{
-		Message: "delete successfully",
-	}, nil
+	return &model.DeleteResponse{Message: "delete successfully"}, nil
 }
