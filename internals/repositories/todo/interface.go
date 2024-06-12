@@ -12,4 +12,5 @@ type Interface interface {
 	Delete(ctx context.Context, request *model.DeleteRequest) (*model.DeleteResponse, error)
 	Update(ctx context.Context, request *model.UpdateRequest) (*model.UpdateResponse, error)
 	List(ctx context.Context) (*[]model.ListResponse, error)
+	Get(ctx context.Context, request *model.GetRequest) (*model.GetResponse, error)
 }
