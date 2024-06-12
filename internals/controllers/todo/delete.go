@@ -14,7 +14,6 @@ func (c Controller) Delete(ctx context.Context, request *message.DeleteRequest) 
 	defer span.End()
 
 	response, err := c.service.Delete(ctx, &model.DeleteRequest{Id: request.Id})
-
 	if err != nil {
 		span.SetStatus(codes.Error, "Error Delete Todo")
 		span.RecordError(err)

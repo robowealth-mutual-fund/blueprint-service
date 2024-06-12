@@ -1,9 +1,9 @@
 package todo
 
 type DeleteRequest struct {
-	Id string `json:"id"`
+	Id string
 }
 
 type DeleteResponse struct {
-	Message string `json:"message"`
+	Message string
 }

@@ -95,8 +95,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/redis/go-redis/v9 v9.5.1 h1:H1X4D3yHPaYrkL5X06Wh6xNVM/pX0Ft4RV0vMGvLBh8=
 github.com/redis/go-redis/v9 v9.5.1/go.mod h1:hdY0cQFCN4fnSYT6TkisLufl/4W5UIXyv0b/CLO2V2M=
-github.com/robowealth-mutual-fund/blueprint-proto v0.0.2 h1:zjnYNf8dLap1MsJOwfeCq6PfJ1V0iATzFgHdUChryLE=
-github.com/robowealth-mutual-fund/blueprint-proto v0.0.2/go.mod h1:gnGSYzSD9w/TlPcb4Q8MnsL4q7DBnkCw3YryWYxOQNM=
+github.com/robowealth-mutual-fund/blueprint-proto v0.0.10 h1:xMkOjRZLtA9FkQ0bvGyrA9h15yUfmvDSZQ1acW26CC8=
+github.com/robowealth-mutual-fund/blueprint-proto v0.0.10/go.mod h1:ksrmJzxOp0XgWvy7IoHgvU8s+Zg+Us7wF5/IS4vC0bE=
 github.com/robowealth-mutual-fund/shared-utility v1.0.2 h1:x67EOum6whJrKsXdaOHY2HiEXFNwgm3I993xl8cwTH4=
 github.com/robowealth-mutual-fund/shared-utility v1.0.2/go.mod h1:O4p7QdEcvZ6eqlJFw1biPrwnymjYIrLIFud2vZAp8IQ=
 github.com/robowealth-mutual-fund/stdlog v1.2.1 h1:obyX2/OSb0Cda3LlMdgrRWUPfsYjnTPcZ5E3RjKRvhE=

@@ -12,7 +12,7 @@ require (
 	github.com/jackc/pgx/v5 v5.5.5
 	github.com/jinzhu/copier v0.3.5
 	github.com/kisielk/sqlstruct v0.0.0-20210630145711-dae28ed37023
-	github.com/robowealth-mutual-fund/blueprint-proto v0.0.2
+	github.com/robowealth-mutual-fund/blueprint-proto v0.0.10
 	github.com/robowealth-mutual-fund/shared-utility v1.0.2
 	github.com/robowealth-mutual-fund/stdlog v1.2.1
 	github.com/robowealth-mutual-fund/switch-language v1.0.1

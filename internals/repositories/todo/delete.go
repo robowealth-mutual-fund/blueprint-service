@@ -8,7 +8,10 @@ import (
 )
 
 func (r *Repository) Delete(ctx context.Context, request *model.DeleteRequest) (*model.DeleteResponse, error) {
-	err := r.oracle.Delete(ctx, map[string]interface{}{"ID": request.Id}, &ent.Todo{})
+	filter := map[string]interface{}{"ID": request.Id}
+	entity := ent.Todo{}
+
+	err := r.oracle.Delete(ctx, filter, &entity)
 	if err != nil {
 		return nil, err
 	}
